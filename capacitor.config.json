@@ -1,0 +1,8 @@
+{
+  "appId": "vue.portpolio",
+  "appName": "vue-portpolio",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
