@@ -28,3 +28,8 @@ npm run dev
 npm run build
 ```
 "# vue-portpolio" 
+
+
+
+
+# npm install vuex@next --save
