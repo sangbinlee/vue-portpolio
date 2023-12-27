@@ -49,9 +49,9 @@ const { user } = storeToRefs(authStore);
 
 
 
-  <main>
+  <!-- <main>
     <TheWelcome />
-  </main>
+  </main> -->
 </template>
 
 
