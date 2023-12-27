@@ -33,3 +33,7 @@ npm run build
 
 
 # npm install vuex@next --save
+
+# npm  i yup
+
+# npm i vee-validate

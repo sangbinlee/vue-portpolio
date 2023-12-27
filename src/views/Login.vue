@@ -7,7 +7,7 @@
 
 
   <div class="card py-3 px-3 my-3">
-    <form>
+    <!-- <form> -->
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
@@ -34,8 +34,8 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+      <button @click="login"  type="submit" class="btn btn-primary">Submit</button>
+    <!-- </form> -->
     <div>
 
       {{ form }}
@@ -47,8 +47,36 @@
 </template>
 
 <script setup>
-import { onMounted, ref ,reactive} from 'vue'
 
+
+
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+
+
+import { useUserStore } from "../stores/user-store";
+const userStore = useUserStore();
+
+console.log('[1 로그인 페이지 userStore]',userStore);
+console.log('[1 로그인 페이지 userStore.username]',userStore.username);
+console.log('[1 로그인 페이지 userStore.isLoggedIn]',userStore.isLoggedIn);
+
+const login = () => {
+  userStore.username = "test";
+
+
+  console.log('[로그인 페이지 userStore.username 222222222222222]',userStore.username);
+  console.log('[로그인 페이지 userStore.isLoggedIn 222222222222222]',userStore.isLoggedIn);
+
+
+  if (userStore.isLoggedIn) { // pinia에서는 getter를 필드처럼 사용 가능하다.
+    // 로그인 성공 시 페이지 이동
+    router.push("/");
+  }
+};
+
+import { onMounted, ref ,reactive} from 'vue'
 
 const testMail= 'sangbinlee9@gmail.com'
 const testPassword= '1234'

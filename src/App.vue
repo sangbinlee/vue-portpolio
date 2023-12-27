@@ -1,22 +1,39 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
 // import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
-import Navigation from './components/Navigation.vue'
+// import Navigation from './components/Navigation.vue'
+
+
+
+import { Alert, Nav } from '@/components';
+import { useAuthStore } from '@/stores';
+const authStore = useAuthStore();
+
 </script>
 
 <template>
-  <Navigation/>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <RouterView />
-      </div>
+  <div class="app-container" :class="authStore.user && 'bg-light'">
+    <!-- <Navigation/> -->
+    <Nav/>
+    <Alert/>
+    
+    <!-- <div class="container"> -->
+    <div class="container pt-4 pb-4">
+
+      <!-- <div class="row">
+        <div class="col-md-12"> -->
+          <RouterView />
+        <!-- </div>
+      </div> -->
     </div>
   </div>
 </template>
 
-<style scoped>
+<style >
+/* <style scoped> */
+@import '@/assets/App.css';
+
 header {
   line-height: 1.5;
   max-height: 100vh;
